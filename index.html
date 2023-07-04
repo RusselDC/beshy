@@ -48,7 +48,6 @@
     const beshyko = document.getElementById('beshyko');
 
     input.addEventListener('keydown',function(event){
-        
         if (event.key === ' ') {
                 event.preventDefault();
                 input.value += beshy;
@@ -56,10 +55,11 @@
         beshyko.innerHTML = input.value;
     })
     input.addEventListener('input',function(event){
-        
-        const inputValue = input.value;
-        const replacedValue = inputValue.replace(/ /g, beshy);
-        beshyko.innerHTML = replacedValue;
+        if (event.key === ' ') {
+            event.preventDefault();
+            input.value += beshy;
+        }
+        beshyko.innerHTML = input.value;
     })
     
     
