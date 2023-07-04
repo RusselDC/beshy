@@ -47,13 +47,19 @@
     const input = document.getElementById('textbox');
     const beshyko = document.getElementById('beshyko');
 
-    input.addEventListener('keyup',function(event){
-        if(event.key === '' || event.key === 32)
-        {
-            event.preventDefault();
-            input.value += beshy;
+    input.addEventListener('keydown',function(event){
+        
+        if (event.key === ' ') {
+                event.preventDefault();
+                input.value += beshy;
         }
         beshyko.innerHTML = input.value;
+    })
+    input.addEventListener('input',function(event){
+        
+        const inputValue = input.value;
+        const replacedValue = inputValue.replace(/ /g, beshy);
+        beshyko.innerHTML = replacedValue;
     })
     
     
